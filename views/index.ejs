@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Frontend Mentor | Todo app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <img src="/images/bg-desktop-light.jpg" alt="" class="header__bg" />
+    </header>
+
+    <main class="todo container">
+      <div class="todo__header">
+        <h1 class="todo__header-title">Todo</h1>
+        <img src="/images/icon-moon.svg" alt="Sun light mode icon" />
+      </div>
+      <form class="todo__form" method="POST" action="/">
+        <button class="checkbox-btn todo__form-btn">
+          <img src="/images/icon-check.svg" alt="" class="checkbox-icon" />
+        </button>
+        <input
+          class="todo__form-input"
+          type="text"
+          name="todo"
+          placeholder="Create a new todo..."
+        />
+      </form>
+      <div class="todo__body">
+        <div class="todo__list">
+          <!-- Item One -->
+          <!-- <div class="todo__item">
+            <button class="checkbox-btn checked">
+              <img src="/images/icon-check.svg" alt="" class="checkbox-icon" />
+            </button>
+            <span class="todo__item-text crossedOff"
+              >Complete Online JavaScript Course</span
+            >
+          </div> -->
+          <% data.forEach((el,idx) => { %>
+          <div class="todo__item" id="<%= idx %> ">
+            <a
+              href="/:<%= idx %> "
+              class="checkbox-btn <%= el.done? 'checked':'' %>"
+            >
+              <img src="/images/icon-check.svg" alt="" class="checkbox-icon" />
+            </a>
+            <span class="todo__item-text <%= el.done? 'crossedOff':'' %>"
+              ><%= el.text %>
+            </span>
+          </div>
+
+          <% }) %>
+
+          <!-- Item Two -->
+        </div>
+        <div class="todo__footer">
+          <span class="todo__items-left"><%= data.length %> items left</span>
+
+          <ul class="todo__filter-options">
+            <li class="todo__filter-option">
+              <a href="#"> All </a>
+            </li>
+            <li class="todo__filter-option">
+              <a href="#"> Active </a>
+            </li>
+            <li class="todo__filter-option">
+              <a href="#"> Completed </a>
+            </li>
+          </ul>
+          <a href="#" class="todo__clear-completed">Clear Completed</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span class="footer__text">Drag and drop to reorder</span>
+    </footer>
+
+    <!-- Todo -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+</html>
